@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="NepaMart — Nepal's modern online marketplace for electronics, fashion, home, beauty and more." />
+  <meta name="theme-color" content="#f4511e" />
+  <title>NepaMart — Nepal's Online Marketplace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="announcement">
+    <div class="shell announcement-inner">
+      <span><i data-lucide="zap"></i> Dashain Dhamaka: Up to 65% off + free delivery</span>
+      <div class="utility-links">
+        <button data-nav="seller">Seller Center</button><button>Help & Support</button><button data-nav="tracking">Track Order</button><button id="langToggle">नेपाली</button>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="shell header-main">
+      <button class="icon-button menu-trigger" id="menuTrigger" aria-label="Open menu"><i data-lucide="menu"></i></button>
+      <button class="brand" data-nav="home" aria-label="NepaMart home">
+        <span class="brand-mark"><i data-lucide="shopping-bag"></i></span>
+        <span>Nepa<span>Mart</span></span>
+      </button>
+      <div class="search-wrap">
+        <i data-lucide="search"></i>
+        <input id="searchInput" type="search" autocomplete="off" placeholder="Search products, brands and categories" aria-label="Search products" />
+        <button id="searchButton">Search</button>
+        <div class="search-suggestions" id="searchSuggestions"></div>
+      </div>
+      <div class="header-actions">
+        <button class="header-action" id="accountButton"><i data-lucide="user-round"></i><span><small>Hello, sign in</small>Account</span></button>
+        <button class="icon-button badge-wrap" id="wishlistButton" aria-label="Wishlist"><i data-lucide="heart"></i><b id="wishlistCount">0</b></button>
+        <button class="icon-button badge-wrap cart-button" data-nav="cart" aria-label="Shopping cart"><i data-lucide="shopping-cart"></i><b id="cartCount">0</b></button>
+      </div>
+    </div>
+    <nav class="category-nav">
+      <div class="shell nav-inner">
+        <button class="all-categories" id="categoryTrigger"><i data-lucide="grid-2x2"></i> All Categories <i data-lucide="chevron-down"></i></button>
+        <button data-category="Electronic Devices">Electronics</button><button data-category="Women's Fashion">Women</button><button data-category="Men's Fashion">Men</button><button data-category="Home & Lifestyle">Home & Living</button><button data-category="Health & Beauty">Beauty</button><button data-category="Groceries & Pets">Groceries</button><button data-category="Sports & Outdoor">Sports</button>
+        <button class="nav-deal"><i data-lucide="tag"></i> Today's Deals</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="homeView" class="page-view active">
+      <div class="shell hero-layout">
+        <aside class="category-panel" id="categoryPanel">
+          <div class="category-panel-title">Shop by category</div>
+          <button data-category="Electronic Devices"><i data-lucide="smartphone"></i><span>Electronic Devices</span><i data-lucide="chevron-right"></i></button>
+          <button data-category="Electronic Accessories"><i data-lucide="headphones"></i><span>Electronic Accessories</span><i data-lucide="chevron-right"></i></button>
+          <button data-category="TV & Home Appliances"><i data-lucide="tv"></i><span>TV & Home Appliances</span><i data-lucide="chevron-right"></i></button>
+          <button data-category="Health & Beauty"><i data-lucide="sparkles"></i><span>Health & Beauty</span><i data-lucide="chevron-right"></i></button>
+          <button data-category="Babies & Toys"><i data-lucide="baby"></i><span>Babies & Toys</span><i data-lucide="chevron-right"></i></button>
+          <button data-category="Groceries & Pets"><i data-lucide="shopping-basket"></i><span>Groceries & Pets</span><i data-lucide="chevron-right"></i></button>
+          <button data-category="Home & Lifestyle"><i data-lucide="lamp-desk"></i><span>Home & Lifestyle</span><i data-lucide="chevron-right"></i></button>
+          <button data-category="Women's Fashion"><i data-lucide="shirt"></i><span>Women's Fashion</span><i data-lucide="chevron-right"></i></button>
+          <button data-category="Men's Fashion"><i data-lucide="briefcase-business"></i><span>Men's Fashion</span><i data-lucide="chevron-right"></i></button>
+          <button data-category="Sports & Outdoor"><i data-lucide="dumbbell"></i><span>Sports & Outdoor</span><i data-lucide="chevron-right"></i></button>
+        </aside>
+        <div class="hero-slider" id="heroSlider">
+          <article class="hero-slide active slide-festival">
+            <div class="hero-copy"><span class="eyebrow">NEPAL'S BIGGEST FESTIVAL SALE</span><h1>Dashain deals that feel like <em>home.</em></h1><p>Celebrate bigger with up to 65% off across your favourite categories.</p><button data-nav="products">Shop the festival <i data-lucide="arrow-right"></i></button></div>
+            <div class="hero-art"><div class="sun"></div><div class="gift gift-one"></div><div class="gift gift-two"></div><span class="sale-disc">65%<small>OFF</small></span></div>
+          </article>
+          <article class="hero-slide slide-tech">
+            <div class="hero-copy"><span class="eyebrow">TECH UPGRADE WEEK</span><h1>Smarter tech.<br><em>Better prices.</em></h1><p>Latest phones, laptops and audio — official warranty included.</p><button data-category="Electronic Devices">Explore electronics <i data-lucide="arrow-right"></i></button></div>
+            <div class="tech-stack"><div class="phone-card">12:47<span></span></div><div class="earbud">♪</div><span class="price-bubble">From<br><b>Rs. 4,999</b></span></div>
+          </article>
+          <article class="hero-slide slide-delivery">
+            <div class="hero-copy"><span class="eyebrow">NATIONWIDE DELIVERY</span><h1>From our sellers<br>to <em>your doorstep.</em></h1><p>Fast, trackable delivery across all 77 districts of Nepal.</p><button data-nav="tracking">Track an order <i data-lucide="arrow-right"></i></button></div>
+            <div class="delivery-art"><i data-lucide="truck"></i><div class="route"></div><span>KTM</span><span>PKR</span><span>BRT</span></div>
+          </article>
+          <button class="slider-arrow prev" id="heroPrev" aria-label="Previous offer"><i data-lucide="chevron-left"></i></button>
+          <button class="slider-arrow next" id="heroNext" aria-label="Next offer"><i data-lucide="chevron-right"></i></button>
+          <div class="slider-dots" id="heroDots"><button class="active"></button><button></button><button></button></div>
+        </div>
+      </div>
+
+      <section class="shell benefit-strip">
+        <div><span><i data-lucide="badge-check"></i></span><p><b>100% genuine</b><small>Trusted products</small></p></div>
+        <div><span><i data-lucide="truck"></i></span><p><b>Free delivery</b><small>On selected items</small></p></div>
+        <div><span><i data-lucide="rotate-ccw"></i></span><p><b>Easy returns</b><small>14-day returns</small></p></div>
+        <div><span><i data-lucide="shield-check"></i></span><p><b>Secure payment</b><small>eSewa, Khalti & COD</small></p></div>
+      </section>
+
+      <section class="shell section-card flash-section">
+        <div class="section-heading flash-heading">
+          <div><span class="section-kicker">LIMITED TIME</span><h2>Flash Sale</h2></div>
+          <div class="countdown-label">Ends in <div class="countdown" id="countdown"><b>03</b><span>:</span><b>24</b><span>:</span><b>16</b></div></div>
+          <button class="text-button" data-nav="products">View all deals <i data-lucide="arrow-right"></i></button>
+        </div>
+        <div class="product-row" id="flashProducts"></div>
+      </section>
+
+      <section class="shell section-block">
+        <div class="section-heading"><div><span class="section-kicker">EXPLORE</span><h2>Shop by category</h2></div><button class="text-button" data-nav="products">View all <i data-lucide="arrow-right"></i></button></div>
+        <div class="category-grid" id="categoryGrid"></div>
+      </section>
+
+      <section class="shell split-promo">
+        <article class="promo-card promo-beauty"><div><span>BEAUTY DAYS</span><h3>Glow your way</h3><p>Up to 45% off skincare essentials</p><button data-category="Health & Beauty">Shop beauty</button></div><div class="promo-orb">Glow</div></article>
+        <article class="promo-card promo-home"><div><span>HOME REFRESH</span><h3>Comfort, curated</h3><p>Thoughtful upgrades for every room</p><button data-category="Home & Lifestyle">Shop home</button></div><div class="lamp-art"><i data-lucide="lamp-desk"></i></div></article>
+      </section>
+
+      <section class="shell section-block">
+        <div class="section-heading"><div><span class="section-kicker">PICKED FOR YOU</span><h2>Just for you</h2></div><div class="heading-tabs"><button class="active">Recommended</button><button>Best selling</button><button>New arrivals</button></div></div>
+        <div class="product-grid" id="recommendedProducts"></div>
+        <button class="load-more" id="loadMore">Load more products</button>
+      </section>
+
+      <section class="brands-band">
+        <div class="shell"><div class="section-heading"><div><span class="section-kicker">TRUSTED NAMES</span><h2>Official brand stores</h2></div><button class="text-button">Explore stores <i data-lucide="arrow-right"></i></button></div>
+          <div class="brand-grid"><div>SAMSUNG<small>Official Store</small></div><div class="brand-xiaomi">mi<small>Official Store</small></div><div class="brand-nike">NIKE<small>Official Store</small></div><div class="brand-asus">ASUS<small>Official Store</small></div><div class="brand-philips">PHILIPS<small>Official Store</small></div><div class="brand-nep">Goldstar<small>Made in Nepal</small></div></div>
+        </div>
+      </section>
+
+      <section class="shell newsletter">
+        <div class="newsletter-icon"><i data-lucide="mail-open"></i></div>
+        <div><span class="section-kicker">THE GOOD STUFF, WEEKLY</span><h2>Deals worth opening your inbox for.</h2><p>New drops, festival offers and members-only prices. No clutter.</p></div>
+        <form id="newsletterForm"><input type="email" required placeholder="you@example.com" aria-label="Email address"><button>Count me in <i data-lucide="arrow-right"></i></button></form>
+      </section>
+    </section>
+
+    <section id="productsView" class="page-view">
+      <div class="shell listing-page">
+        <div class="breadcrumbs"><button data-nav="home">Home</button><i data-lucide="chevron-right"></i><span id="listingBreadcrumb">All Products</span></div>
+        <div class="listing-top"><div><span class="section-kicker">DISCOVER</span><h1 id="listingTitle">All products</h1><p><b id="resultCount">0</b> thoughtfully sourced products</p></div><button class="filter-mobile" id="filterMobile"><i data-lucide="sliders-horizontal"></i> Filters</button><label>Sort by <select id="sortSelect"><option value="relevance">Relevance</option><option value="newest">Newest</option><option value="priceAsc">Price: low to high</option><option value="priceDesc">Price: high to low</option><option value="rating">Top rated</option></select></label></div>
+        <div class="listing-layout">
+          <aside class="filters" id="filtersPanel">
+            <div class="filter-head"><h3>Filters</h3><button id="clearFilters">Clear all</button></div>
+            <div class="filter-group"><h4>Price range</h4><div class="price-inputs"><input id="minPrice" type="number" min="0" placeholder="Min"><span>—</span><input id="maxPrice" type="number" min="0" placeholder="Max"></div></div>
+            <div class="filter-group"><h4>Categories</h4><div id="categoryFilters" class="check-list"></div></div>
+            <div class="filter-group"><h4>Customer rating</h4><label><input type="radio" name="rating" value="4"> <span class="stars">★★★★</span><span class="muted-star">★</span> & up</label><label><input type="radio" name="rating" value="3"> <span class="stars">★★★</span><span class="muted-star">★★</span> & up</label></div>
+            <div class="filter-group"><h4>Delivery</h4><label><input type="checkbox" id="freeDelivery"> Free delivery</label><label><input type="checkbox" id="codFilter"> Cash on delivery</label></div>
+            <button class="apply-filters" id="applyFilters">Show results</button>
+          </aside>
+          <div><div class="active-filters" id="activeFilters"></div><div class="product-grid listing-grid" id="listingProducts"></div><div class="empty-state" id="emptyState"><i data-lucide="package-search"></i><h3>No products found</h3><p>Try changing your filters or search phrase.</p><button id="emptyReset">Reset filters</button></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cartView" class="page-view">
+      <div class="shell cart-page"><div class="breadcrumbs"><button data-nav="home">Home</button><i data-lucide="chevron-right"></i><span>Your cart</span></div><div class="cart-title"><div><span class="section-kicker">YOUR BAG</span><h1>Shopping cart</h1></div><button data-nav="products">Continue shopping <i data-lucide="arrow-right"></i></button></div>
+        <div class="cart-layout"><div class="cart-list" id="cartList"></div><aside class="order-summary"><h3>Order summary</h3><div><span>Subtotal</span><b id="cartSubtotal">Rs. 0</b></div><div><span>Shipping</span><b id="cartShipping">Rs. 0</b></div><div class="discount-row"><span>Discount</span><b id="cartDiscount">− Rs. 0</b></div><form id="voucherForm"><input id="voucherInput" placeholder="Voucher code"><button>Apply</button></form><p class="voucher-hint">Try <b>NAMASTE10</b></p><div class="summary-total"><span>Total</span><b id="cartTotal">Rs. 0</b></div><small>VAT included where applicable</small><button class="checkout-btn" id="checkoutButton">Proceed to checkout <i data-lucide="arrow-right"></i></button><div class="payment-icons"><span>eSewa</span><span>Khalti</span><span>COD</span></div></aside></div>
+      </div>
+    </section>
+
+    <section id="trackingView" class="page-view">
+      <div class="tracking-hero"><div class="shell"><span class="section-kicker">ORDER UPDATES</span><h1>Know exactly where it is.</h1><p>Enter your order number to see the latest status and delivery estimate.</p><form id="trackingForm"><input id="trackingInput" placeholder="Try NP-2048-7712" required><button>Track order <i data-lucide="search"></i></button></form></div></div>
+      <div class="shell tracking-result" id="trackingResult"><div class="tracking-card"><div class="tracking-head"><div><span>ORDER #NP-2048-7712</span><h2>Arriving by Thursday, 22 October</h2><p>2 items · Kathmandu Metropolitan City</p></div><span class="status-pill">Shipped</span></div><div class="progress-line"><div class="progress-fill"></div><div class="step done"><i data-lucide="check"></i><b>Placed</b><small>Oct 18</small></div><div class="step done"><i data-lucide="check"></i><b>Confirmed</b><small>Oct 18</small></div><div class="step done"><i data-lucide="check"></i><b>Packed</b><small>Oct 19</small></div><div class="step current"><i data-lucide="truck"></i><b>Shipped</b><small>Oct 20</small></div><div class="step"><i data-lucide="package-check"></i><b>Delivered</b><small>Expected Oct 22</small></div></div><div class="shipment-note"><i data-lucide="map-pin"></i><div><b>Your order left the Kathmandu sorting centre</b><p>Today, 8:42 AM · Balaju, Kathmandu</p></div></div></div></div>
+    </section>
+
+    <section id="sellerView" class="page-view">
+      <div class="seller-hero"><div class="shell seller-hero-inner"><div><span class="section-kicker">NEPAMART SELLER HUB</span><h1>Turn your ambition into a <em>nationwide business.</em></h1><p>Reach shoppers across all 77 districts with simple tools for products, orders, campaigns and payouts.</p><div class="seller-actions"><button id="sellerJoin">Start selling</button><button>Seller sign in <i data-lucide="arrow-right"></i></button></div><div class="seller-stats"><div><b>1.2M+</b><span>monthly shoppers</span></div><div><b>77</b><span>districts reached</span></div><div><b>7 days</b><span>payout cycle</span></div></div></div><div class="seller-dashboard-mock"><div class="mock-top"><span>Today</span><i data-lucide="bell"></i></div><div class="mock-revenue"><span>Net revenue</span><h3>Rs. 84,250</h3><small>↑ 18.4% this week</small></div><div class="mock-chart"><i style="height:25%"></i><i style="height:47%"></i><i style="height:38%"></i><i style="height:74%"></i><i style="height:55%"></i><i style="height:88%"></i><i style="height:70%"></i></div><div class="mock-orders"><b>12 new orders</b><span>3 ready to ship</span></div></div></div></div>
+      <div class="shell seller-features"><article><i data-lucide="store"></i><h3>Your store, your story</h3><p>Create a polished storefront and manage your catalogue with ease.</p></article><article><i data-lucide="bar-chart-3"></i><h3>Decisions backed by data</h3><p>Understand sales, customers and products with clear analytics.</p></article><article><i data-lucide="badge-dollar-sign"></i><h3>Simple, reliable payouts</h3><p>Transparent commission and scheduled payments to your bank.</p></article></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-grid"><div class="footer-brand"><button class="brand" data-nav="home"><span class="brand-mark"><i data-lucide="shopping-bag"></i></span><span>Nepa<span>Mart</span></span></button><p>More choice. Better value.<br>Delivered across Nepal.</p><div class="socials"><button><i data-lucide="facebook"></i></button><button><i data-lucide="instagram"></i></button><button><i data-lucide="youtube"></i></button></div></div><div><h4>Customer care</h4><a>Help Center</a><a>How to Buy</a><a>Returns & Refunds</a><a>Contact Us</a><a>Track My Order</a></div><div><h4>About NepaMart</h4><a>About Us</a><a>Careers</a><a data-nav="seller">Sell on NepaMart</a><a>Affiliate Program</a><a>Terms & Privacy</a></div><div><h4>Pay your way</h4><div class="footer-payments"><span>eSewa</span><span>Khalti</span><span>Fonepay</span><span>COD</span></div><h4 class="app-title">Shop on the go</h4><div class="app-buttons"><button> <span>Download on the<b>App Store</b></span></button><button>▶ <span>GET IT ON<b>Google Play</b></span></button></div></div></div>
+    <div class="shell footer-bottom"><span>© 2026 NepaMart Pvt. Ltd. Made with care in Nepal.</span><span><i data-lucide="map-pin"></i> Kathmandu, Nepal</span></div>
+  </footer>
+
+  <nav class="mobile-nav"><button class="active" data-nav="home"><i data-lucide="house"></i><span>Home</span></button><button data-nav="products"><i data-lucide="layout-grid"></i><span>Shop</span></button><button id="mobileSearch"><i data-lucide="search"></i><span>Search</span></button><button data-nav="cart" class="badge-wrap"><i data-lucide="shopping-cart"></i><b id="mobileCartCount">0</b><span>Cart</span></button><button id="mobileAccount"><i data-lucide="user"></i><span>Account</span></button></nav>
+
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="side-drawer" id="sideDrawer"><div class="drawer-head"><div class="brand"><span class="brand-mark"><i data-lucide="shopping-bag"></i></span><span>Nepa<span>Mart</span></span></div><button id="drawerClose"><i data-lucide="x"></i></button></div><div class="drawer-user"><span><i data-lucide="user"></i></span><div><b>Welcome to NepaMart</b><button>Sign in or create an account</button></div></div><h4>Shop categories</h4><div id="drawerCategories"></div><hr><button data-nav="tracking"><i data-lucide="truck"></i> Track my order</button><button data-nav="seller"><i data-lucide="store"></i> Seller Center</button><button><i data-lucide="circle-help"></i> Help & Support</button></aside>
+
+  <div class="modal-backdrop" id="modalBackdrop"></div>
+  <section class="modal product-modal" id="productModal" role="dialog" aria-modal="true" aria-label="Product details"><button class="modal-close" data-close-modal><i data-lucide="x"></i></button><div id="productModalBody"></div></section>
+  <section class="modal auth-modal" id="authModal" role="dialog" aria-modal="true" aria-label="Sign in"><button class="modal-close" data-close-modal><i data-lucide="x"></i></button><div class="auth-logo"><span class="brand-mark"><i data-lucide="shopping-bag"></i></span></div><span class="section-kicker">WELCOME BACK</span><h2>Sign in to NepaMart</h2><p>Track orders, save favourites and check out faster.</p><form id="authForm"><label>Email or mobile number<input type="text" required placeholder="98XXXXXXXX or you@example.com"></label><label>Password<input type="password" required placeholder="••••••••"></label><div class="form-between"><label><input type="checkbox"> Remember me</label><button type="button">Forgot password?</button></div><button class="primary-wide">Sign in</button></form><div class="or"><span>or continue with</span></div><button class="google-button">G <span>Google</span></button><small>New to NepaMart? <button>Create an account</button></small></section>
+  <section class="modal checkout-modal" id="checkoutModal" role="dialog" aria-modal="true" aria-label="Checkout"><button class="modal-close" data-close-modal><i data-lucide="x"></i></button><div id="checkoutBody"></div></section>
+
+  <div class="toast-region" id="toastRegion" aria-live="polite"></div>
+</body>
+</html>
